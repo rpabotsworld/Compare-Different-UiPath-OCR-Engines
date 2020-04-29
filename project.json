@@ -7,10 +7,11 @@
     "UiPath.Abbyy.Activities": "[1.0.1]",
     "UiPath.Excel.Activities": "[2.8.0-preview]",
     "UiPath.Mail.Activities": "[1.8.0-preview]",
+    "UiPath.MicrosoftVision.Activities": "[2.2.0]",
     "UiPath.PDF.Activities": "[3.1.0]",
     "UiPath.System.Activities": "[19.12.0-preview]",
     "UiPath.UIAutomation.Activities": "[19.12.0-preview]",
-    "UiPath.Vision": "[2.0.0]"
+    "UiPath.Vision": "[2.0.3-preview]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
@@ -34,7 +35,7 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "fileInfos": []
+    "fileInfoCollection": []
   },
   "expressionLanguage": "VisualBasic"
 }

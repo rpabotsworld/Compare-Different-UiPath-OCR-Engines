@@ -6,10 +6,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>668,917.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>768.8,917.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Microsoft_Cloud_OCR_Example_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="46">
+    <scg:List x:TypeArguments="x:String" Capacity="26">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -39,7 +39,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -66,12 +66,25 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Microsoft_Cloud_OCR_Example" sap:VirtualizedContainerService.HintSize="375.2,752.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default="https://uipathocr-vision.cognitiveservices.azure.com/" Name="MicrsoftComputerVisionEndpoint" />
-      <Variable x:TypeArguments="x:String" Default="3d963a236f10486b83a1ffcde414748a" Name="APIKey1" />
       <Variable x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))" Name="result" />
       <Variable x:TypeArguments="x:String" Name="fileName" />
       <Variable x:TypeArguments="s:String[]" Name="SavedResult" />
       <Variable x:TypeArguments="x:String" Name="text" />
+      <Variable x:TypeArguments="x:String" Name="ApplicationID">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">dd3410e2-e883-4a51-b826-b4de7dd3d40f</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="Password">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">7lrJA0P2TBmapQf2HesDBMrO</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="ProcessingURL">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">https://cloud.ocrsdk.com</Literal>
+        </Variable.Default>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -86,14 +99,14 @@
         <InArgument x:TypeArguments="x:String">[in_fileName]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Processing for File With Microsoft Cloud -&quot;+ fileName.ToString]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Processing for File With ABBYY Cloud -&quot;+ fileName.ToString]" />
     <ui:ReadPDFWithOCR Text="{x:Null}" DegreeOfParallelism="-1" DisplayName="Read PDF With OCR" FileName="[fileName]" sap:VirtualizedContainerService.HintSize="333.6,132" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_3" ImageDpi="150" Range="All">
       <ui:ReadPDFWithOCR.OCREngine>
         <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
           <ActivityFunc.Argument>
             <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
           </ActivityFunc.Argument>
-          <ui:MicrosoftAzureComputerVisionOCR FilterRegion="{x:Null}" Output="{x:Null}" Profile="{x:Null}" ApiKey="[APIKey1]" ComputeSkewAngle="False" DisplayName="Microsoft Azure Computer Vision OCR" Endpoint="[MicrsoftComputerVisionEndpoint]" ExtractWords="True" HandwritingRecognition="True" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="MicrosoftAzureComputerVisionOCR_3" Image="[Image]" Language="AutoDetect" Result="[result]" Scale="0.5" Text="[text]" />
+          <ui:AbbyyCloudOCR FilterRegion="{x:Null}" Language="{x:Null}" Output="{x:Null}" ApplicationID="[ApplicationID]" ComputeSkewAngle="False" DisplayName="Abbyy Cloud OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="AbbyyCloudOCR_1" Image="[Image]" Password="[Password]" Profile="None" Result="[result]" Scale="2" ServerUrl="[ProcessingURL]" Text="[text]" />
         </ActivityFunc>
       </ui:ReadPDFWithOCR.OCREngine>
     </ui:ReadPDFWithOCR>
@@ -102,7 +115,7 @@
         <OutArgument x:TypeArguments="s:String[]">[SavedResult]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="s:String[]">[{"Microsoft Cloud",fileName, text}]</InArgument>
+        <InArgument x:TypeArguments="s:String[]">[{"ABBYY Cloud",fileName, text}]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[SavedResult]" DataTable="[in_out_SavedResult]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
