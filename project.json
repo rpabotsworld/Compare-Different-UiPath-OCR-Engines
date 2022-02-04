@@ -3,15 +3,11 @@
   "description": "Comparing OCR Engines in UiPath\r\n",
   "main": "Main.xaml",
   "dependencies": {
-    "Abbyy.CloudSdk.V2.Client": "[1.0.3]",
-    "UiPath.Abbyy.Activities": "[1.0.1]",
-    "UiPath.Excel.Activities": "[2.8.0-preview]",
-    "UiPath.Mail.Activities": "[1.8.0-preview]",
-    "UiPath.MicrosoftVision.Activities": "[2.2.0]",
-    "UiPath.PDF.Activities": "[3.1.0]",
-    "UiPath.System.Activities": "[19.12.0-preview]",
-    "UiPath.UIAutomation.Activities": "[20.4.1]",
-    "UiPath.Vision": "[2.0.3]"
+    "UiPath.Abbyy.Activities": "[1.5.0]",
+    "UiPath.Excel.Activities": "[2.11.4]",
+    "UiPath.PDF.Activities": "[3.4.1]",
+    "UiPath.System.Activities": "[21.10.4]",
+    "UiPath.UIAutomation.Activities": "[21.10.5]"
   },
   "webServices": [],
   "entitiesStores": [],
@@ -20,7 +16,9 @@
   "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
+    "netFrameworkLazyLoading": false,
     "isPausable": true,
+    "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
     "excludedLoggedData": [
@@ -29,7 +27,8 @@
     ],
     "executionType": "Workflow",
     "readyForPiP": false,
-    "startsInPiP": false
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": false
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -55,5 +54,6 @@
   ],
   "isTemplate": false,
   "templateProjectData": {},
-  "publishData": {}
+  "publishData": {},
+  "targetFramework": "Legacy"
 }

@@ -25,5 +25,9 @@
   "UiPath.UiAutomation.Activities.AbbyyOCR.CorrectSkew": "Auto",
   "UiPath.UiAutomation.Activities.AbbyyOCR.Profile": "None",
   "UiPath.UiAutomation.Activities.AbbyyOCR.Scale": "1",
-  "UiPath.UiAutomation.Activities.AbbyyOCR.Language": "English"
+  "UiPath.UiAutomation.Activities.AbbyyOCR.Language": "English",
+  "UiPath.OCR.Activities.UiPathScreenOCR.Endpoint": "https://ocr.uipath.com/",
+  "UiPath.OCR.Activities.UiPathScreenOCR.ApiKey": "",
+  "UiPath.OCR.Activities.UiPathDocumentOCR.Endpoint": "https://du.uipath.com/ocr",
+  "UiPath.OCR.Activities.UiPathDocumentOCR.ApiKey": ""
 }
