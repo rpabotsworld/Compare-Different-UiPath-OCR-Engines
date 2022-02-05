@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>668,917.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1063.2,983.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Google_OCR_Example_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="26">
@@ -62,9 +62,10 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Abbyy.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Google_OCR_Example" sap:VirtualizedContainerService.HintSize="375.2,752.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Google_OCR_Example" sap:VirtualizedContainerService.HintSize="375.2,918.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))" Name="result" />
       <Variable x:TypeArguments="x:String" Name="text" />
@@ -91,7 +92,7 @@
           <ActivityFunc.Argument>
             <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
           </ActivityFunc.Argument>
-          <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" Result="[result]" Text="[text]" />
+          <ui:GoogleOCR AllowedCharacters="{x:Null}" DeniedCharacters="{x:Null}" FilterRegion="{x:Null}" Invert="{x:Null}" Language="{x:Null}" Output="{x:Null}" Scale="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" Profile="Scan" Result="[result]" Text="[text]" />
         </ActivityFunc>
       </ui:ReadPDFWithOCR.OCREngine>
     </ui:ReadPDFWithOCR>
@@ -103,7 +104,7 @@
         <InArgument x:TypeArguments="s:String[]">[{"Google",fileName, text}]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[SavedResult]" DataTable="[in_out_SavedResult]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[SavedResult]" DataTable="[in_out_SavedResult]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Processing of File -&quot;+ fileName.ToString +&quot;Got Completed. &quot;]" />
   </Sequence>
 </Activity>
